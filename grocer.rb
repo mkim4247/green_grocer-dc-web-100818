@@ -27,8 +27,6 @@ def apply_coupons(cart, coupons)
             cart = cart.merge(new_hash)
           end 
         end 
-      else 
-        cart 
       end 
     end 
     cart
