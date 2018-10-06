@@ -15,9 +15,8 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  if coupons.length > 0
     coupons.each do |coupon_hash|
-      if cart.keys.include?(coupon_hash[:item])
+      if (cart.keys.include?(coupon_hash[:item]))
         if cart[coupon_hash[:item]][:count] >= coupon_hash[:num]
           cart[coupon_hash[:item]][:count] -= coupon_hash[:num]
           if cart.keys.include? ("#{coupon_hash[:item]} W/COUPON")
