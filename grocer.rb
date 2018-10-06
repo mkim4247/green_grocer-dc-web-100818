@@ -26,8 +26,6 @@ def apply_coupons(cart, coupons)
             new_hash["#{hash[:item]} W/COUPON"] = {:price => hash[:cost], :clearance => cart[hash[:item]][:clearance], :count => 1}
             cart = cart.merge(new_hash)
           end 
-        else 
-          cart 
         end 
       else 
         cart 
