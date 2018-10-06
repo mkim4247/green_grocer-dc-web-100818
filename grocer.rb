@@ -47,5 +47,6 @@ def checkout(cart, coupons)
   cart = apply_coupons(cart, coupons)
   cart = apply_clearance(cart)
   
-  
+  cart.each do |item|
+    
 end
