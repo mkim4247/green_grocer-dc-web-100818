@@ -50,5 +50,9 @@ def checkout(cart, coupons)
   cart.each do |item, hash|
     total += cart[item][:price]
   end 
+  
+  if total > 100 
+    total *= 0.90
+  end 
   total 
 end
