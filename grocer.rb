@@ -39,8 +39,6 @@ end
 
 
 def apply_coupons(cart, coupons)
-  
-  #check if coupon array has elements
   if coupons.length > 0
     
     #iterate through coupon array
