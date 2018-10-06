@@ -48,6 +48,6 @@ def checkout(cart, coupons)
   cart = apply_clearance(cart)
   
   cart.each do |item, hash|
-    
+    total += 
     
 end
