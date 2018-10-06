@@ -16,59 +16,25 @@ end
 
 def apply_coupons(cart, coupons)
     coupons.each do |coupon_hash|
-      if cart.keys.include? (coupon_hash[:item])
+      if cart.keys.include?(coupon_hash[:item])
         if cart[coupon_hash[:item]][:count] >= coupon_hash[:num]
           cart[coupon_hash[:item]][:count] -= coupon_hash[:num]
-          if cart.keys.include? ("#{coupon_hash[:item]} W/ COUPON")
-            cart["#{coupon_hash[:item]} W/ COUPON"][:count] += 1 
+          if cart.keys.include? ("#{coupon_hash[:item]} W/COUPON")
+            cart["#{coupon_hash[:item]} W/COUPON"][:count] += 1 
           else 
             couponed_item = {}
             couponed_item["#{coupon_hash[:item]} W/ COUPON"] = {:price => coupon_hash[:cost], :clearance => cart[coupon_hash[:item]][:clearance], :count => 1}
             cart = cart.merge(couponed_item)
           end 
         else 
-          cart 
+          return cart 
         end 
       else 
-        cart 
+        return cart 
       end 
     end 
-    cart
+    return cart
 end
-
-
-def apply_coupons(cart, coupons)
-  if coupons.length > 0
-    coupons.each do |n|
-      if (cart.keys.include? (n[:item])) 
-        
-        #see if cart item qty is > coupon qty
-        if cart[n[:item]][:count] >=  n[:num]
-        
-          #decrease cart item quantity
-          cart[n[:item]][:count] -= n[:num]
-  
-          
-          #see if we need to add coupon line item to cart or increase existing coupon line item
-          if cart.keys.include? ("#{n[:item]} W/COUPON")
-            
-            cart["#{n[:item]} W/COUPON"][:count] += 1
-          else 
-          #convert coupon structure to cart_hash structure and merge into cart
-          coupon_hash = {}
-          coupon_hash["#{n[:item]} W/COUPON"] = {:price => n[:cost], :clearance => cart[n[:item]][:clearance], :count => 1}
-          cart = cart.merge(coupon_hash)
-          end
-        else 
-          return cart
-        end 
-      else 
-        return cart
-      end 
-    end 
-  end
-  return cart
-end 
 
 
 def apply_clearance(cart)
