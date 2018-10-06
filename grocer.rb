@@ -32,7 +32,6 @@ def apply_coupons(cart, coupons)
       else 
         cart 
       end 
-       
     end 
     cart
 end
@@ -40,11 +39,7 @@ end
 
 def apply_coupons(cart, coupons)
   if coupons.length > 0
-    
-    #iterate through coupon array
     coupons.each do |n|
-      
-      #see if coupon item is in the cart
       if (cart.keys.include? (n[:item])) 
         
         #see if cart item qty is > coupon qty
